@@ -1,0 +1,33 @@
+@use "./styles/header";
+@use "./styles/sliderGroup";
+@use "./styles/guessZone";
+@use "./styles/guessButton";
+@use "./styles/scoreboard";
+@use "./styles/winAnimation";
+@use "./styles/roundAnimation";
+@use "./styles/howToModal";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: MontSerrat, sans-serif;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.5s linear;
+  .round-info {
+    align-self: center;
+    background-color: black;
+    color: white;
+    padding: 2px;
+    margin: 5px;
+    border-radius: 4px;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");

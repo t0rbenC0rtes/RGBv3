@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background: #222;
+    color: white;
+  
+    button {
+      background: #444;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+  
+      &:hover {
+        background: #666;
+      }
+    }
+  }
+  

@@ -1,0 +1,21 @@
+.guess-zone {
+  text-align: center;
+  margin-top: 20px;
+
+  .color-display {
+    width: 90vw;
+    height: 120px;
+    border-radius: 12px;
+    margin: 0 auto;
+    border: 2px solid #fff;
+    background-color: white; // Default to white before guessing
+    transition: background-color 0.3s ease;    
+  }
+
+  p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+  }
+}

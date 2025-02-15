@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.header {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background: #222;
+  color: white;
+}
+.header button {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.header button:hover {
+  background: #666;
+}
+
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+.slider-group .slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.slider-group .slider label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.slider-group .slider input[type=range] {
+  width: 100%;
+  cursor: pointer;
+}
+.slider-group .slider .slider-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.slider-group .slider .slider-buttons button {
+  background: #333;
+  color: white;
+  font-size: 18px;
+  padding: 5px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.slider-group .slider .slider-buttons button:hover {
+  background: #555;
+}
+.slider-group .slider .slider-buttons button:active {
+  background: #777;
+}
+
+.guess-zone {
+  text-align: center;
+  margin-top: 20px;
+}
+.guess-zone .color-display {
+  width: 90vw;
+  height: 120px;
+  border-radius: 12px;
+  margin: 0 auto;
+  border: 2px solid #fff;
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+.guess-zone p {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.guess-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.guess-button {
+  background: #ffcc00;
+  color: #000;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, opacity 0.3s;
+}
+.guess-button:hover {
+  background: #ff9900;
+}
+.guess-button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.scoreboard {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+.scoreboard h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.scoreboard p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+.scoreboard h3 {
+  font-size: 22px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+.scoreboard button {
+  background: #ffcc00;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+.scoreboard button:hover {
+  background: #ff9900;
+}
+
+.win-animation {
+  position: fixed;
+  top: 70%;
+  left: 40%;
+  background: rgba(255, 223, 88, 0.9);
+  color: #000;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.round-animation {
+  position: fixed;
+  top: 50%;
+  left: 40%;
+  background: rgba(88, 150, 255, 0.9);
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+}
+
+.modal-content button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: MontSerrat, sans-serif;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.5s linear;
+}
+.app-container .round-info {
+  align-self: center;
+  background-color: black;
+  color: white;
+  padding: 2px;
+  margin: 5px;
+  border-radius: 4px;
+}/*# sourceMappingURL=main.css.map */

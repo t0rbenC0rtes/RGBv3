@@ -1,0 +1,39 @@
+.scoreboard {
+    text-align: center;
+    margin-top: 30px;
+    color: #fff;
+  
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  
+    p {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+  
+    h3 {
+      font-size: 22px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  
+    button {
+      background: #ffcc00;
+      color: #000;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s;
+  
+      &:hover {
+        background: #ff9900;
+      }
+    }
+  }
+  
