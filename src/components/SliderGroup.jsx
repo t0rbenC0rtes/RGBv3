@@ -47,8 +47,7 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
     <div className="slider-group">
       {Object.keys(colors).map((color) => (
         <div className="slider" key={color}>
-          <label style={{ color: colors[color].color }}>
-            {" "}
+          <label style={{ color: colors[color].color }}>            
             {/* ✅ Label matches color */}
             {colors[color].name}: {guessedColor[color]}{" "}
             {lockedSliders[color] ? "✔" : ""}
@@ -60,9 +59,9 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
             marks={marks}
             value={guessedColor[color]}
             onChange={(value) => handleChange(color, value)}
-            railStyle={{ backgroundColor: `${colors[color].color}40` }} // ✅ Lightened color track
-            handleStyle={{ borderColor: colors[color].color }} // ✅ Handle matches color
-            trackStyle={{ backgroundColor: colors[color].color }} // ✅ Track matches color
+            railStyle={{ backgroundColor: `${colors[color].color}40` }}
+            handleStyle={{ borderColor: colors[color].color }}
+            trackStyle={{ backgroundColor: colors[color].color }}
             dots={true}
             disabled={lockedSliders[color]}
           />
@@ -70,14 +69,14 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
             <button
               disabled={lockedSliders[color]}
               onClick={() => adjustValue(color, "decrease")}
-              style={{ backgroundColor: colors[color].color, color: "white" }} // ✅ Button color
+              style={{ backgroundColor: colors[color].color, color: "white" }}
             >
               <CgMathMinus />
             </button>
             <button
               disabled={lockedSliders[color]}
               onClick={() => adjustValue(color, "increase")}
-              style={{ backgroundColor: colors[color].color, color: "white" }} // ✅ Button color
+              style={{ backgroundColor: colors[color].color, color: "white" }}
             >
               <CgMathPlus />
             </button>

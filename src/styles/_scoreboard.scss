@@ -1,24 +1,37 @@
-.scoreboard {
+.scoreboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .scoreboard {
     text-align: center;
-    margin-top: 30px;
-    color: #fff;
-  
+    margin-top: 1.875rem;
+    color: #000;
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+
+    .submit-score {      
+      display: flex;
+      flex-direction: column;
+    }
+
     h2 {
       font-size: 24px;
       margin-bottom: 10px;
     }
-  
+
     p {
       font-size: 18px;
       margin: 5px 0;
     }
-  
+
     h3 {
       font-size: 22px;
       margin-top: 15px;
       font-weight: bold;
     }
-  
+
     button {
       background: #ffcc00;
       color: #000;
@@ -30,10 +43,10 @@
       cursor: pointer;
       margin-top: 20px;
       transition: background 0.3s;
-  
+
       &:hover {
         background: #ff9900;
       }
     }
   }
-  
+}

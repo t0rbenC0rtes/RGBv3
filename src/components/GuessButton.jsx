@@ -1,6 +1,6 @@
+import { p } from "framer-motion/client";
 import React from "react";
 import { MdBlock } from "react-icons/md";
-import { FaQuestion } from "react-icons/fa6";
 
 const GuessButton = ({ onGuess, gameRunning }) => {
   return (
@@ -10,7 +10,7 @@ const GuessButton = ({ onGuess, gameRunning }) => {
         onClick={onGuess}
         disabled={!gameRunning} // Disable button if game hasn't started
       >
-        {gameRunning ? <FaQuestion /> : <MdBlock />}
+        {gameRunning ? "guess" : <MdBlock />}
       </button>
     </div>
   );

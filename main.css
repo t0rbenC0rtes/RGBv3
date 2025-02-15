@@ -35,9 +35,8 @@
   border: 1px solid black;
 }
 .slider-group .slider label {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-size: 1rem;
+  margin-bottom: 0.125rem;
   background-color: white;
   border-radius: 8px;
   padding: 3px;
@@ -49,8 +48,7 @@
 }
 .slider-group .slider .slider-buttons {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 .slider-group .slider .slider-buttons button {
   background: #333;
@@ -61,8 +59,13 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   border: 1px solid black;
+}
+@media screen and (min-width: 768px) {
+  .slider-group .slider .slider-buttons button {
+    margin-top: 1.5rem;
+  }
 }
 .slider-group .slider .slider-buttons button:hover {
   background: #555;
@@ -104,8 +107,7 @@
 .guess-button {
   background: #ffcc00;
   color: #000;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 1rem;
   padding: 15px 40px;
   border: none;
   border-radius: 10px;
@@ -121,25 +123,37 @@
   opacity: 0.5;
 }
 
-.scoreboard {
-  text-align: center;
-  margin-top: 30px;
-  color: #fff;
+.scoreboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.scoreboard h2 {
+.scoreboard-container .scoreboard {
+  text-align: center;
+  margin-top: 1.875rem;
+  color: #000;
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 8px;
+}
+.scoreboard-container .scoreboard .submit-score {
+  display: flex;
+  flex-direction: column;
+}
+.scoreboard-container .scoreboard h2 {
   font-size: 24px;
   margin-bottom: 10px;
 }
-.scoreboard p {
+.scoreboard-container .scoreboard p {
   font-size: 18px;
   margin: 5px 0;
 }
-.scoreboard h3 {
+.scoreboard-container .scoreboard h3 {
   font-size: 22px;
   margin-top: 15px;
   font-weight: bold;
 }
-.scoreboard button {
+.scoreboard-container .scoreboard button {
   background: #ffcc00;
   color: #000;
   font-size: 18px;
@@ -151,14 +165,13 @@
   margin-top: 20px;
   transition: background 0.3s;
 }
-.scoreboard button:hover {
+.scoreboard-container .scoreboard button:hover {
   background: #ff9900;
 }
 
 .win-animation {
   position: fixed;
-  top: 70%;
-  left: 40%;
+  top: 0%;
   background: rgba(255, 223, 88, 0.9);
   color: #000;
   font-size: 24px;
@@ -171,8 +184,7 @@
 
 .round-animation {
   position: fixed;
-  top: 50%;
-  left: 40%;
+  bottom: 0%;
   background: rgba(88, 150, 255, 0.9);
   color: #fff;
   font-size: 24px;

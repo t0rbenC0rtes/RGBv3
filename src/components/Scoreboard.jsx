@@ -34,31 +34,33 @@ const Scoreboard = ({ scores }) => {
   };
 
   return (
-    <div className="scoreboard">
-      <h2>🎉 YOU WON 3 ROUNDS! 🎉</h2>
-      {scores.map((score, index) => (
-        <p key={index}>
-          Round {index + 1}: {score} guesses
-        </p>
-      ))}
-      <h3>Total Score: {totalScore} (Lower is better!)</h3>
+    <div className="scoreboard-container">
+      <div className="scoreboard">
+        <h2>🎉 YOU WON 3 ROUNDS! 🎉</h2>
+        {scores.map((score, index) => (
+          <p key={index}>
+            Round {index + 1}: {score} guesses
+          </p>
+        ))}
+        <p>Total Score: {totalScore} (Lower is better!)</p>
 
-      {!submitted ? (
-        <div>
-          <input
-            type="text"
-            maxLength="3"
-            placeholder="Your initials"
-            value={playerName}
-            onChange={(e) => setPlayerName(e.target.value.toUpperCase())}
-          />
-          <button onClick={handleSubmit}>Submit Score</button>
-        </div>
-      ) : (
-        <p>✅ Score saved!</p>
-      )}
+        {!submitted ? (
+          <div className="submit-score">
+            <input
+              type="text"
+              maxLength="3"
+              placeholder="Your initials"
+              value={playerName}
+              onChange={(e) => setPlayerName(e.target.value.toUpperCase())}
+            />
+            <button onClick={handleSubmit}>Submit Score</button>
+          </div>
+        ) : (
+          <p>✅ Score saved!</p>
+        )}
 
-      <button onClick={() => window.location.reload()}>Play Again</button>
+        <button onClick={() => window.location.reload()}>Play Again</button>
+      </div>
     </div>
   );
 };
