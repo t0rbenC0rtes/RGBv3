@@ -34,6 +34,9 @@
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 5px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 2px;
 }
 .slider-group .slider input[type=range] {
   width: 100%;
@@ -60,6 +63,11 @@
 }
 .slider-group .slider .slider-buttons button:active {
   background: #777;
+}
+@media (max-width: 768px) {
+  .slider-group .rc-slider-mark {
+    display: none !important;
+  }
 }
 
 .guess-zone {
@@ -192,6 +200,10 @@
   width: 80%;
   max-width: 400px;
 }
+.modal-content h2 {
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
 .modal-content li {
   list-style: none;
 }
@@ -222,8 +234,8 @@
 }
 .app-container .round-info {
   align-self: center;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   padding: 2px;
   margin: 5px;
   border-radius: 4px;

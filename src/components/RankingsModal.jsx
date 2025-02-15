@@ -21,7 +21,7 @@ const RankingsModal = ({ isOpen, onClose }) => {
         <ul>
           {scores.map((entry, index) => (
             <li key={entry._id}>
-              {index + 1}. {entry.name} - {entry.score} points
+              {index + 1}. {entry.name} - {entry.score} pts
             </li>
           ))}
         </ul>

@@ -31,24 +31,38 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
     handleChange(color, newValue);
   };
 
+  const marks = {};
+  for (let i = 0; i <= 250; i += 10) {
+    marks[i] = `${i}`; // Converts numbers into string labels
+  }
+  marks[255] = "255";
+
+  const colors = {
+    r: { name: "Red", color: "red" },
+    g: { name: "Green", color: "green" },
+    b: { name: "Blue", color: "blue" },
+  };
+
   return (
     <div className="slider-group">
-      {["r", "g", "b"].map((color) => (
+      {Object.keys(colors).map((color) => (
         <div className="slider" key={color}>
-          <label>
-            {color.toUpperCase()}: {guessedColor[color]}{" "}
+          <label style={{ color: colors[color].color }}>
+            {" "}
+            {/* ✅ Label matches color */}
+            {colors[color].name}: {guessedColor[color]}{" "}
             {lockedSliders[color] ? "✔" : ""}
           </label>
           <Slider
             min={0}
             max={255}
             step={10}
+            marks={marks}
             value={guessedColor[color]}
             onChange={(value) => handleChange(color, value)}
-            styles={{
-              track: { backgroundColor: colorMap[color] }, // Map r/g/b to red/green/blue
-              handle: { borderColor: colorMap[color] },
-            }}
+            railStyle={{ backgroundColor: `${colors[color].color}40` }} // ✅ Lightened color track
+            handleStyle={{ borderColor: colors[color].color }} // ✅ Handle matches color
+            trackStyle={{ backgroundColor: colors[color].color }} // ✅ Track matches color
             dots={true}
             disabled={lockedSliders[color]}
           />
@@ -56,12 +70,14 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
             <button
               disabled={lockedSliders[color]}
               onClick={() => adjustValue(color, "decrease")}
+              style={{ backgroundColor: colors[color].color, color: "white" }} // ✅ Button color
             >
               <CgMathMinus />
             </button>
             <button
               disabled={lockedSliders[color]}
               onClick={() => adjustValue(color, "increase")}
+              style={{ backgroundColor: colors[color].color, color: "white" }} // ✅ Button color
             >
               <CgMathPlus />
             </button>
