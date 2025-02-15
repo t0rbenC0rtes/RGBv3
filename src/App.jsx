@@ -68,9 +68,9 @@ function App() {
     };
 
     setTargetColor(newColor);
-    console.log(
-      `New target color: rgb(${newColor.r}, ${newColor.g}, ${newColor.b})`
-    );
+    // console.log(
+    //   `New target color: rgb(${newColor.r}, ${newColor.g}, ${newColor.b})`
+    // );
     setGuessCount(0);
     setGuessedColor({ r: 0, g: 0, b: 0 });
     setLastGuessedColor({ r: 255, g: 255, b: 255 });
