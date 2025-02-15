@@ -6,6 +6,7 @@ import GuessZone from "./components/GuessZone";
 import GuessButton from "./components/GuessButton";
 import Scoreboard from "./components/Scoreboard";
 import HowToModal from "./components/HowToModal";
+import RankingsModal from "./components/RankingsModal";
 import "./main.scss";
 
 function App() {
@@ -29,10 +30,16 @@ function App() {
   const [showRoundAnimation, setShowRoundAnimation] = useState(false);
   const [gameRunning, setGameRunning] = useState(false);
   const [isHowToOpen, setIsHowToOpen] = useState(false);
+  const [isRankingsOpen, setIsRankingsOpen] = useState(false);
 
   const getRandomStepValue = () => {
     const values = Array.from({ length: 26 }, (_, i) => i * 10).concat(255);
     return values[Math.floor(Math.random() * values.length)];
+  };
+
+  const handleGameOver = (finalScores) => {
+    setScores(finalScores);
+    setGameOver(true);
   };
 
   const startNewGame = () => {
@@ -83,7 +90,7 @@ function App() {
     setLockedSliders(newLocked);
 
     if (newLocked.r && newLocked.g && newLocked.b) {
-      setScores([...scores, guessCount + 1]);
+      setScores([...scores, guessCount]);
 
       if (round < 3) {
         setShowWinAnimation(true);
@@ -109,10 +116,15 @@ function App() {
     >
       <Header
         onNewGame={startNewGame}
-        onShowRankings={() => console.log("Show Rankings")}
+        onShowRankings={() => setIsRankingsOpen(true)}
         onShowHowToPlay={() => setIsHowToOpen(true)}
       />
+
       <HowToModal isOpen={isHowToOpen} onClose={() => setIsHowToOpen(false)} />
+      <RankingsModal
+        isOpen={isRankingsOpen}
+        onClose={() => setIsRankingsOpen(false)}
+      />
 
       {gameOver ? (
         <Scoreboard scores={scores} />
