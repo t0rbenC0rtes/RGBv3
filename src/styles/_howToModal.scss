@@ -27,6 +27,19 @@
   li {
     list-style: none;
   }
+  .loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .loader-container p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #007bff;
+  }
 }
 
 .modal-content button {
