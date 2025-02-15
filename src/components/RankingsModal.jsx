@@ -5,7 +5,7 @@ const RankingsModal = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     if (isOpen) {
-      fetch("http://localhost:5000/scores")
+      fetch("https://rgb-leaderboard.onrender.com/scores")
         .then((res) => res.json())
         .then((data) => setScores(data))
         .catch((err) => console.error("Error fetching scores:", err));

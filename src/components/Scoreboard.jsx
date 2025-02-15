@@ -12,7 +12,7 @@ const Scoreboard = ({ scores }) => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/scores", {
+      const response = await fetch("https://rgb-leaderboard.onrender.com/scores", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: playerName, score: totalScore }),
