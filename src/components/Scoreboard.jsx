@@ -12,11 +12,14 @@ const Scoreboard = ({ scores }) => {
     }
 
     try {
-      const response = await fetch("https://rgb-leaderboard.onrender.com/scores", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: playerName, score: totalScore }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/scores`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: playerName, score: totalScore }),
+        }
+      );
 
       if (response.ok) {
         setSubmitted(true);
@@ -34,7 +37,9 @@ const Scoreboard = ({ scores }) => {
     <div className="scoreboard">
       <h2>🎉 YOU WON 3 ROUNDS! 🎉</h2>
       {scores.map((score, index) => (
-        <p key={index}>Round {index + 1}: {score} guesses</p>
+        <p key={index}>
+          Round {index + 1}: {score} guesses
+        </p>
       ))}
       <h3>Total Score: {totalScore} (Lower is better!)</h3>
 
