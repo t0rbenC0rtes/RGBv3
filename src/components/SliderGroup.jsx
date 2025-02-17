@@ -1,5 +1,6 @@
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import { BiBorderRadius } from "react-icons/bi";
 import { CgMathPlus, CgMathMinus } from "react-icons/cg";
 
 const colorMap = { r: "red", g: "green", b: "blue" };
@@ -44,12 +45,32 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
         const marks = {};
         for (let i = 0; i <= 250; i += 10) {
           marks[i] = {
-            style: { color: colors[color].color, fontWeight: "bold" }, // Apply color dynamically
+            style: {
+              color: colors[color].color,
+              fontWeight: "bold",
+              fontSize: "12px",
+              textShadow: `
+                -.5px -.5px 0 white,  
+                 .5px -.5px 0 white,  
+                -.5px  .5px 0 white,  
+                 .5px  .5px 0 white
+              `,
+            },
             label: `${i}`,
           };
         }
         marks[255] = {
-          style: { color: colors[color].color, fontWeight: "bold" },
+          style: {
+            color: colors[color].color,
+            fontWeight: "bold",
+            fontSize: "12px",
+            textShadow: `
+              -1px -1px 0 white,  
+               1px -1px 0 white,  
+              -1px  1px 0 white,  
+               1px  1px 0 white
+            `,
+          },
           label: "255",
         };
 
