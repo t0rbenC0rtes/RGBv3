@@ -31,7 +31,7 @@ function App() {
   const [gameRunning, setGameRunning] = useState(false);
   const [isHowToOpen, setIsHowToOpen] = useState(false);
   const [isRankingsOpen, setIsRankingsOpen] = useState(false);
-  const [invertedColor, setInvertedColor] = useState({ r: 0, g: 0, b: 0 });
+  const [invertedColor, setInvertedColor] = useState({ r: 5, g: 15, b: 30 });
 
   const invertColor = (color) => ({
     r: 255 - color.r,
@@ -148,7 +148,7 @@ function App() {
             </motion.div>
           )}
 
-          <p className="round-info">Round {round} of 3</p>
+          <p className="round-info">Round <span style={{color:`rgb(${targetColor.r}, ${targetColor.g}, ${targetColor.b})`}}>{round}</span> of <span style={{color:`rgb(${invertedColor.r}, ${invertedColor.g}, ${invertedColor.b})`}}>3</span></p>
 
           {showWinAnimation && (
             <motion.div

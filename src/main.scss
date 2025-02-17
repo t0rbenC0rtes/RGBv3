@@ -23,12 +23,17 @@
   .round-info {
     align-self: center;
     background-color: white;
-    color: black;
+    // color: black;
     padding: 3px;
     margin: 5px;
-    border-radius: 4px;
-    border: 1px solid black;
+    border-radius: 8px;
+    border: 3px solid black;
     font-weight: 700;
+    min-width: 10rem;
+    text-align: center;
+    span {
+      font-size: 1.5rem;
+    }
   }  
 }
 
