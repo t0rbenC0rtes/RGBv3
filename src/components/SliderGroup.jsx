@@ -47,24 +47,11 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
     <div className="slider-group">
       {Object.keys(colors).map((color) => (
         <div className="slider" key={color}>
-          <label style={{ color: colors[color].color }}>            
+          <label style={{ color: colors[color].color }}>
             {/* ✅ Label matches color */}
             {colors[color].name}: {guessedColor[color]}{" "}
             {lockedSliders[color] ? "✔" : ""}
           </label>
-          <Slider
-            min={0}
-            max={255}
-            step={10}
-            marks={marks}
-            value={guessedColor[color]}
-            onChange={(value) => handleChange(color, value)}
-            railStyle={{ backgroundColor: `${colors[color].color}40` }}
-            handleStyle={{ borderColor: colors[color].color }}
-            trackStyle={{ backgroundColor: colors[color].color }}
-            dots={true}
-            disabled={lockedSliders[color]}
-          />
           <div className="slider-buttons">
             <button
               disabled={lockedSliders[color]}
@@ -81,6 +68,19 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
               <CgMathPlus />
             </button>
           </div>
+          <Slider
+            min={0}
+            max={255}
+            step={10}
+            marks={marks}
+            value={guessedColor[color]}
+            onChange={(value) => handleChange(color, value)}
+            railStyle={{ backgroundColor: `${colors[color].color}40` }}
+            handleStyle={{ borderColor: colors[color].color }}
+            trackStyle={{ backgroundColor: colors[color].color }}
+            dots={true}
+            disabled={lockedSliders[color]}
+          />
         </div>
       ))}
     </div>

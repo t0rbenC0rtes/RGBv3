@@ -22,6 +22,7 @@
       border-radius: 8px;
       padding: 3px;
       border: 1px solid black;
+      font-weight: 700;
     }
 
     input[type="range"] {
@@ -32,6 +33,7 @@
     .slider-buttons {
       display: flex;
       gap: 0.625rem;
+      margin-bottom: .5rem;
 
       button {
         background: #333;
