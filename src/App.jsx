@@ -16,7 +16,7 @@ function App() {
     g: 255,
     b: 255,
   });
-  const [targetColor, setTargetColor] = useState({ r: 0, g: 0, b: 0 });
+  const [targetColor, setTargetColor] = useState({ r: 5, g: 15, b: 30 });
   const [guessCount, setGuessCount] = useState(0);
   const [round, setRound] = useState(1);
   const [scores, setScores] = useState([]);
@@ -67,10 +67,7 @@ function App() {
       b: getRandomStepValue(),
     };
 
-    setTargetColor(newColor);
-    // console.log(
-    //   `New target color: rgb(${newColor.r}, ${newColor.g}, ${newColor.b})`
-    // );
+    setTargetColor(newColor);    
     setGuessCount(0);
     setGuessedColor({ r: 0, g: 0, b: 0 });
     setLastGuessedColor({ r: 255, g: 255, b: 255 });
