@@ -32,6 +32,7 @@ function App() {
   const [isHowToOpen, setIsHowToOpen] = useState(false);
   const [isRankingsOpen, setIsRankingsOpen] = useState(false);
   const [invertedColor, setInvertedColor] = useState({ r: 5, g: 15, b: 30 });
+  const [incorrectMarks, setIncorrectMarks] = useState({ r: [], g: [], b: [] });
 
   const invertColor = (color) => ({
     r: 255 - color.r,
@@ -64,6 +65,7 @@ function App() {
     setTimeout(() => {
       setShowRoundAnimation(false);
       randomizeBackgroundColor();
+      setIncorrectMarks({ r: [], g: [], b: [] }); 
     }, 2000); // Display animation for 2 seconds
   };
 
@@ -89,11 +91,17 @@ function App() {
     setGuessCount(guessCount + 1);
 
     let newLocked = { ...lockedSliders };
-    if (guessedColor.r === targetColor.r) newLocked.r = true;
-    if (guessedColor.g === targetColor.g) newLocked.g = true;
-    if (guessedColor.b === targetColor.b) newLocked.b = true;
+    let newIncorrectMarks = { ...incorrectMarks };
+    ["r", "g", "b"].forEach((color) => {
+      if (guessedColor[color] === targetColor[color]) {
+        newLocked[color] = true; // Correct guess, lock slider
+      } else {
+        newIncorrectMarks[color] = [...newIncorrectMarks[color], guessedColor[color]]; // Add to incorrect marks
+      }
+    });
 
     setLockedSliders(newLocked);
+    setIncorrectMarks(newIncorrectMarks);
 
     if (newLocked.r && newLocked.g && newLocked.b) {
       setScores([...scores, guessCount]);
@@ -166,6 +174,7 @@ function App() {
             onColorChange={setGuessedColor}
             guessedColor={guessedColor}
             lockedSliders={lockedSliders}
+            incorrectMarks={incorrectMarks}
           />
           <GuessZone
             guessedColor={lastGuessedColor}

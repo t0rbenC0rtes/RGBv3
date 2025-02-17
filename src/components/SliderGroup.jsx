@@ -5,7 +5,7 @@ import { CgMathPlus, CgMathMinus } from "react-icons/cg";
 
 const colorMap = { r: "red", g: "green", b: "blue" };
 
-const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
+const SliderGroup = ({ onColorChange, guessedColor, lockedSliders, incorrectMarks = {r:[], g:[], b:[]} }) => {
   const stepValues = Array.from({ length: 26 }, (_, i) => i * 10).concat(255);
 
   const handleChange = (color, value) => {
@@ -41,6 +41,7 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
   return (
     <div className="slider-group">
       {Object.keys(colors).map((color) => {
+        const incorrect = incorrectMarks[color] || [];
         // Define marks inside the loop, so it gets the right color
         const marks = {};
         for (let i = 0; i <= 250; i += 10) {
@@ -56,7 +57,7 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
                  .5px  .5px 0 lightGray
               `,
             },
-            label: `${i}`,
+            label: incorrect.includes(i) ? "❌" : `${i}`,
           };
         }
         marks[255] = {
