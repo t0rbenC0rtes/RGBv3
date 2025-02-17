@@ -31,6 +31,13 @@ function App() {
   const [gameRunning, setGameRunning] = useState(false);
   const [isHowToOpen, setIsHowToOpen] = useState(false);
   const [isRankingsOpen, setIsRankingsOpen] = useState(false);
+  const [invertedColor, setInvertedColor] = useState({ r: 0, g: 0, b: 0 });
+
+  const invertColor = (color) => ({
+    r: 255 - color.r,
+    g: 255 - color.g,
+    b: 255 - color.b,
+  });
 
   const getRandomStepValue = () => {
     const values = Array.from({ length: 26 }, (_, i) => i * 10).concat(255);
@@ -67,7 +74,9 @@ function App() {
       b: getRandomStepValue(),
     };
 
-    setTargetColor(newColor);    
+    setTargetColor(newColor);
+    setInvertedColor(invertColor(newColor));
+
     setGuessCount(0);
     setGuessedColor({ r: 0, g: 0, b: 0 });
     setLastGuessedColor({ r: 255, g: 255, b: 255 });
@@ -161,10 +170,16 @@ function App() {
           <GuessZone
             guessedColor={lastGuessedColor}
             lockedSliders={lockedSliders}
+            invertedColor={invertedColor}
           />
 
           <p className="round-info">Guesses this round: {guessCount}</p>
-          <GuessButton onGuess={handleGuess} gameRunning={gameRunning} />
+          <GuessButton
+            onGuess={handleGuess}
+            gameRunning={gameRunning}
+            targetColor={targetColor}
+            invertedColor={invertedColor}
+          />
         </>
       )}
     </motion.div>
