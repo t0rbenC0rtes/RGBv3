@@ -55,10 +55,18 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
 
         return (
           <div className="slider" key={color}>
-            <label style={{ color: colors[color].color }}>
+            <label
+              style={{
+                color: colors[color].color,
+                borderColor: colors[color].color,
+                border: "2.5px solid",
+                minWidth: "6.25rem",
+              }}
+            >
               {colors[color].name}: {guessedColor[color]}{" "}
               {lockedSliders[color] ? "✔" : ""}
             </label>
+
             <div className="slider-buttons">
               <button
                 disabled={lockedSliders[color]}
@@ -87,7 +95,7 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
                 height: "10px", // ✅ Matches track height
               }}
               handleStyle={{
-                borderColor: colors[color].color,                
+                borderColor: colors[color].color,
                 width: "22px", // ✅ Bigger handle for better grip
                 height: "22px",
                 marginTop: "-8px", // ✅ Centers handle with track
