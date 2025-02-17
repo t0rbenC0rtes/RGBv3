@@ -82,9 +82,21 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
               marks={marks} // ✅ Now correctly colored per slider
               value={guessedColor[color]}
               onChange={(value) => handleChange(color, value)}
-              railStyle={{ backgroundColor: `${colors[color].color}40` }}
-              handleStyle={{ borderColor: colors[color].color }}
-              trackStyle={{ backgroundColor: colors[color].color }}
+              railStyle={{
+                backgroundColor: `${colors[color].color}40`,
+                height: "10px", // ✅ Matches track height
+              }}
+              handleStyle={{
+                borderColor: colors[color].color,                
+                width: "22px", // ✅ Bigger handle for better grip
+                height: "22px",
+                marginTop: "-8px", // ✅ Centers handle with track
+              }}
+              trackStyle={{
+                backgroundColor: colors[color].color,
+                height: "15px", // ✅ Same height as rail
+                marginTop: "-5px",
+              }}
               dots={true}
               disabled={lockedSliders[color]}
             />
