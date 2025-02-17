@@ -50,10 +50,10 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders }) => {
               fontWeight: "bold",
               fontSize: "12px",
               textShadow: `
-                -.5px -.5px 0 white,  
-                 .5px -.5px 0 white,  
-                -.5px  .5px 0 white,  
-                 .5px  .5px 0 white
+                -.5px -.5px 0 lightGray,  
+                 .5px -.5px 0 lightGray,  
+                -.5px  .5px 0 lightGray,  
+                 .5px  .5px 0 lightGray
               `,
             },
             label: `${i}`,
