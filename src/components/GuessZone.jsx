@@ -1,4 +1,5 @@
 import React from "react";
+import { BsPaintBucket } from "react-icons/bs";
 
 const GuessZone = ({
   guessedColor,
@@ -14,7 +15,7 @@ const GuessZone = ({
           }, ${guessedColor?.b || 0})`,
           transition: "background-color 0.3s ease",
         }}
-      ></div>
+      ><BsPaintBucket style={{color:"blue", fontSize:"5rem", marginTop:"1rem"}}/></div>
     </div>
   );
 };
