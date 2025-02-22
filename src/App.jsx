@@ -31,7 +31,11 @@ function App() {
   const [gameRunning, setGameRunning] = useState(false);
   const [isHowToOpen, setIsHowToOpen] = useState(false);
   const [isRankingsOpen, setIsRankingsOpen] = useState(false);
-  const [invertedColor, setInvertedColor] = useState({ r: 250, g: 240, b: 220 });
+  const [invertedColor, setInvertedColor] = useState({
+    r: 150,
+    g: 150,
+    b: 200,
+  });
   const [incorrectMarks, setIncorrectMarks] = useState({ r: [], g: [], b: [] });
 
   const invertColor = (color) => ({
@@ -73,7 +77,7 @@ function App() {
       b: getRandomStepValue(),
     };
 
-    setTargetColor(newColor);    
+    setTargetColor(newColor);
     setInvertedColor(invertColor(newColor));
 
     setGuessCount(0);
@@ -194,6 +198,7 @@ function App() {
             guessedColor={guessedColor}
             lockedSliders={lockedSliders}
             incorrectMarks={incorrectMarks}
+            invertedColor={invertedColor}
           />
           <GuessZone
             guessedColor={lastGuessedColor}

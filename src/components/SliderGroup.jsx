@@ -10,6 +10,7 @@ const SliderGroup = ({
   guessedColor,
   lockedSliders,
   incorrectMarks = { r: [], g: [], b: [] },
+  invertedColor,
 }) => {
   const stepValues = Array.from({ length: 26 }, (_, i) => i * 10).filter(
     (v) => v <= 250
@@ -74,8 +75,8 @@ const SliderGroup = ({
               style={{
                 color: colors[color].color,
                 borderColor: colors[color].color,
-                border: "2.5px solid",
-                minWidth: "6.25rem",
+                border: "4px solid",
+                minWidth: "6.8rem",
               }}
             >
               {colors[color].name}: {guessedColor[color]}{" "}
@@ -86,14 +87,22 @@ const SliderGroup = ({
               <button
                 disabled={lockedSliders[color]}
                 onClick={() => adjustValue(color, "decrease")}
-                style={{ backgroundColor: colors[color].color, color: "white" }}
+                style={{
+                  backgroundColor: colors[color].color,
+                  color: "white",
+                  border: `4px solid rgb(${invertedColor.r}, ${invertedColor.g}, ${invertedColor.b})`,
+                }}
               >
                 <CgMathMinus />
               </button>
               <button
                 disabled={lockedSliders[color]}
                 onClick={() => adjustValue(color, "increase")}
-                style={{ backgroundColor: colors[color].color, color: "white" }}
+                style={{
+                  backgroundColor: colors[color].color,
+                  color: "white",
+                  border: `4px solid rgb(${invertedColor.r}, ${invertedColor.g}, ${invertedColor.b})`,
+                }}
               >
                 <CgMathPlus />
               </button>

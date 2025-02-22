@@ -18,8 +18,7 @@ const HowToModal = ({ isOpen, onClose }) => {
         <p>⛔ Each wrong guess counts for a point. ⛔</p>
         <p>👇 Lowest score wins. 👇</p>
         <p>🤓 wtf is <a href="https://en.wikipedia.org/wiki/RGB_color_model">rgb</a>? 🤓</p>
-        <p>🤡 Click new game to start 🤡</p>
-        <p>Click ❓ to guess.</p>
+        <p>🤡 Click new game to start 🤡</p>        
         <button onClick={onClose}>Close</button>
       </div>
 
