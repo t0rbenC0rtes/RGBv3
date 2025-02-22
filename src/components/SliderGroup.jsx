@@ -5,8 +5,15 @@ import { CgMathPlus, CgMathMinus } from "react-icons/cg";
 
 const colorMap = { r: "red", g: "green", b: "blue" };
 
-const SliderGroup = ({ onColorChange, guessedColor, lockedSliders, incorrectMarks = {r:[], g:[], b:[]} }) => {
-  const stepValues = Array.from({ length: 26 }, (_, i) => i * 10).concat(255);
+const SliderGroup = ({
+  onColorChange,
+  guessedColor,
+  lockedSliders,
+  incorrectMarks = { r: [], g: [], b: [] },
+}) => {
+  const stepValues = Array.from({ length: 26 }, (_, i) => i * 10).filter(
+    (v) => v <= 250
+  );
 
   const handleChange = (color, value) => {
     if (!lockedSliders[color]) {
@@ -60,20 +67,6 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders, incorrectMark
             label: incorrect.includes(i) ? "❌" : `${i}`,
           };
         }
-        marks[255] = {
-          style: {
-            color: colors[color].color,
-            fontWeight: "bold",
-            fontSize: "12px",
-            textShadow: `
-              -1px -1px 0 white,  
-               1px -1px 0 white,  
-              -1px  1px 0 white,  
-               1px  1px 0 white
-            `,
-          },
-          label: "255",
-        };
 
         return (
           <div className="slider" key={color}>
@@ -107,7 +100,7 @@ const SliderGroup = ({ onColorChange, guessedColor, lockedSliders, incorrectMark
             </div>
             <Slider
               min={0}
-              max={255}
+              max={250}
               step={10}
               marks={marks} // ✅ Now correctly colored per slider
               value={guessedColor[color]}

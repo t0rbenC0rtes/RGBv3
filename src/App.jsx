@@ -12,9 +12,9 @@ import "./main.scss";
 function App() {
   const [guessedColor, setGuessedColor] = useState({ r: 0, g: 0, b: 0 });
   const [lastGuessedColor, setLastGuessedColor] = useState({
-    r: 255,
-    g: 255,
-    b: 255,
+    r: 250,
+    g: 250,
+    b: 250,
   });
   const [targetColor, setTargetColor] = useState({ r: 5, g: 15, b: 30 });
   const [guessCount, setGuessCount] = useState(0);
@@ -41,13 +41,10 @@ function App() {
   });
 
   const getRandomStepValue = () => {
-    const values = Array.from({ length: 26 }, (_, i) => i * 10).concat(255);
+    const values = Array.from({ length: 26 }, (_, i) => i * 10).filter(
+      (v) => v <= 250
+    );
     return values[Math.floor(Math.random() * values.length)];
-  };
-
-  const handleGameOver = (finalScores) => {
-    setScores(finalScores);
-    setGameOver(true);
   };
 
   const startNewGame = () => {
@@ -65,7 +62,7 @@ function App() {
     setTimeout(() => {
       setShowRoundAnimation(false);
       randomizeBackgroundColor();
-      setIncorrectMarks({ r: [], g: [], b: [] }); 
+      setIncorrectMarks({ r: [], g: [], b: [] });
     }, 2000); // Display animation for 2 seconds
   };
 
@@ -77,11 +74,12 @@ function App() {
     };
 
     setTargetColor(newColor);
+    console.log(newColor);
     setInvertedColor(invertColor(newColor));
 
     setGuessCount(0);
     setGuessedColor({ r: 0, g: 0, b: 0 });
-    setLastGuessedColor({ r: 255, g: 255, b: 255 });
+    setLastGuessedColor({ r: 250, g: 250, b: 250 });
     setLockedSliders({ r: false, g: false, b: false });
     setShowWinAnimation(false);
   };
@@ -96,7 +94,10 @@ function App() {
       if (guessedColor[color] === targetColor[color]) {
         newLocked[color] = true; // Correct guess, lock slider
       } else {
-        newIncorrectMarks[color] = [...newIncorrectMarks[color], guessedColor[color]]; // Add to incorrect marks
+        newIncorrectMarks[color] = [
+          ...newIncorrectMarks[color],
+          guessedColor[color],
+        ]; // Add to incorrect marks
       }
     });
 
@@ -156,7 +157,24 @@ function App() {
             </motion.div>
           )}
 
-          <p className="round-info">Round <span style={{color:`rgb(${targetColor.r}, ${targetColor.g}, ${targetColor.b})`}}>{round}</span> of <span style={{color:`rgb(${invertedColor.r}, ${invertedColor.g}, ${invertedColor.b})`}}>3</span></p>
+          <p className="round-info">
+            Round{" "}
+            <span
+              style={{
+                color: `rgb(${targetColor.r}, ${targetColor.g}, ${targetColor.b})`,
+              }}
+            >
+              {round}
+            </span>{" "}
+            of{" "}
+            <span
+              style={{
+                color: `rgb(${invertedColor.r}, ${invertedColor.g}, ${invertedColor.b})`,
+              }}
+            >
+              3
+            </span>
+          </p>
 
           {showWinAnimation && (
             <motion.div
